@@ -37,6 +37,6 @@ var addMarkersToMap = function addMarkersToMap(data) {
   map.addControl( new L.Control.Search({layer: geoJsonLayer, propertyName: 'name'}) );
 };
 
-$.getJSON( "/scripts/cities.geojson", function(data) {
+$.getJSON( "./opendata/cities.geojson", function(data) {
   addMarkersToMap(data);
 });

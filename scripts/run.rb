@@ -35,4 +35,4 @@ CSV.foreach('../opendata/geburtsorte.csv') do |row|
 end
 
 data = {type: 'FeatureCollection', features: cities}
-File.open("cities.geojson", 'w') { |file| file.print data.to_json }
+File.open("../opendata/cities.geojson", 'w') { |file| file.print data.to_json }
