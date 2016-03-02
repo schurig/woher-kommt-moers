@@ -1,14 +1,28 @@
 require 'csv'
 require 'json'
+require 'open-uri'
+require 'uri'
 
 cities = []
 
 CSV.foreach('../opendata/geburtsorte.csv') do |row|
+  puts "requesting lat and lon for #{row[0]}"
+  url = URI.encode("https://nominatim.openstreetmap.org/search?format=json&city=#{row[0]}&limit=1")
+  res = open(url).read
+  json_res = JSON.parse(res)
+
+  lat = 51
+  lon = 7
+  if json_res.first
+    lat = json_res.first['lat']
+    lon = json_res.first['lon']
+  end
+
   city = {
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [51, 7]
+      coordinates: [lat, lon]
     },
     properties: {
       name: row[0],
