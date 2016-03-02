@@ -22,7 +22,7 @@ CSV.foreach('../opendata/geburtsorte.csv') do |row|
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [lat, lon]
+      coordinates: [lon, lat]
     },
     properties: {
       name: row[0],
