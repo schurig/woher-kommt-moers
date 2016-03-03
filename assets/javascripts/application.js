@@ -25,7 +25,7 @@ var addMarkersToMap = function addMarkersToMap(data) {
     onEachFeature: function (feature, layer) {
       popupHtml = (
         '<p>' + feature.properties.count + '</p>' +
-        '<p>kommen aus ' + feature.properties.name + '</p>'
+        '<p>kommen aus ' + feature.properties.city + '</p>'
       )
 
       var popup = L.popup().setContent(popupHtml);
